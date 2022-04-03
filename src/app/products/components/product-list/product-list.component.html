@@ -1,0 +1,18 @@
+<div class="product-item" *ngFor="let product of productService.getProducts()">
+  <div>
+    Name: {{product.name}}
+  </div>
+  <div>
+    Description: {{product.description}}
+  </div>
+  <div>
+    Price: {{product.price}}
+  </div>
+  <div>
+    IsAvailable: {{product.isAvailable}}
+  </div>
+
+  <button mat-raised-button (click)="onAddToCart(product)">Add to cart</button>
+</div>
+
+<app-product></app-product>

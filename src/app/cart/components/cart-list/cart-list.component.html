@@ -1,0 +1,18 @@
+<div>
+  <div class="cart-title">Cart:</div>
+  <div *ngIf="cartService.getCartItems().length > 0; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="cart-item" *ngFor="let product of cartService.getCartItems(); trackBy: trackByItems">
+      <div>
+        Name: {{product.name}}
+      </div>
+      <div>
+        Description: {{product.description}}
+      </div>
+      <div>
+        Price: {{product.price}}
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>The cart is empty.</ng-template>
+</div>
