@@ -1,4 +1,4 @@
-<div class="product-item" *ngFor="let product of productService.getProducts()">
+<!-- <div class="product-item" *ngFor="let product of productService.getProducts()">
   <div>
     Name: {{product.name}}
   </div>
@@ -13,6 +13,6 @@
   </div>
 
   <button mat-raised-button (click)="onAddToCart(product)">Add to cart</button>
-</div>
+</div> -->
 
-<app-product></app-product>
+<app-product *ngFor="let product of productService.getProducts()" [product]="product" (productAddedToCart)="onAddToCart($event)"></app-product>

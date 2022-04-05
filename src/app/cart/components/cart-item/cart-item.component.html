@@ -1,0 +1,12 @@
+<div appHighlight class="cart-item" appHighlight>
+  <ul>
+    <li>Name: {{item.product.name}}</li>
+    <li>Description: {{item.product.description}}</li>
+    <li>Price: {{item.product.price}}</li>
+  </ul>
+
+  <button mat-raised-button color="primary" (click)="onQuantityDecrease()" [disabled]="item.quantity < 2">-</button>
+  <span>Quantity: {{item.quantity}}</span>
+  <button mat-raised-button color="primary" (click)="onQuantityIncrease()" [disabled]="!item.product.isAvailable">+</button>
+  <button mat-raised-button color="warn" (click)="onDeleteItem()">Delete</button>
+</div>

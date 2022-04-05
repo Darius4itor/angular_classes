@@ -7,5 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2022-04-03
 ### Added
 - Functionality, according to Task 1 Introduction.
-- Angular material library
+- Angular material library.
 - Button, that adds a product to the cart.
+
+## [2.0.0] - 2022-04-06
+### Added
+- Functionality, according to Task 2 Components.
+- HostBinding cursor pointer to cart item.
+- Cart item quantity counter.
+
+### Changed
+- First component no more shown.
+- Buy button logic.
