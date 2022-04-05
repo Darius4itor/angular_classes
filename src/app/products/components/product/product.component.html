@@ -1,1 +1,9 @@
-<button mat-raised-button color="primary" (click)="onAddToCart()">Buy</button>
+<div class="product-item">
+  <ul>
+    <li>Name: {{product.name}}</li>
+    <li>Description: {{product.description}}</li>
+    <li>Price: {{product.price}}</li>
+    <li>IsAvailable: {{product.isAvailable}}</li>
+  </ul>
+  <button mat-raised-button color="primary" (click)="onAddToCart()" [disabled]="!product.isAvailable">Buy</button>
+</div>

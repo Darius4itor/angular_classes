@@ -16,7 +16,7 @@ export class ProductService {
       'name': 'Grape',
       'description': 'Just an grape',
       'price': 15,
-      'isAvailable': true
+      'isAvailable': false
     },
   ];
 

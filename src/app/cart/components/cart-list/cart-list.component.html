@@ -1,18 +1,14 @@
 <div>
   <div class="cart-title">Cart:</div>
-  <div *ngIf="cartService.getCartItems().length > 0; then thenBlock else elseBlock"></div>
+  <div *ngIf="cartService.totalQuantity > 0; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
-    <div class="cart-item" *ngFor="let product of cartService.getCartItems(); trackBy: trackByItems">
-      <div>
-        Name: {{product.name}}
-      </div>
-      <div>
-        Description: {{product.description}}
-      </div>
-      <div>
-        Price: {{product.price}}
-      </div>
-    </div>
+    <div class="cart-title">Cart Total Quantity: {{cartService.totalQuantity}}</div>
+    <div class="cart-title">Cart Total Cost: {{cartService.totalCost}}</div>
+
+    <app-cart-item *ngFor="let item of cartService.getCartItems(); trackBy: trackByItems" [item]="item" (itemDeleted)="onItemDelete($event)"></app-cart-item>
+
   </ng-template>
-  <ng-template #elseBlock>The cart is empty.</ng-template>
+  <ng-template #elseBlock>
+    <span class="cart-title">The cart is empty.</span>
+  </ng-template>
 </div>
