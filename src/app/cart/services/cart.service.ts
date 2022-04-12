@@ -5,6 +5,7 @@ import { Product } from 'src/app/products/models/product.model';
   providedIn: 'root'
 })
 export class CartService {
+  // думаю, что тип должен включать еще и количество товара
   private cart: Product[] = [];
 
   constructor() { }
