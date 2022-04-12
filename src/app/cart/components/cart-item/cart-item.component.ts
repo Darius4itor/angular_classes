@@ -17,10 +17,14 @@ export class CartItemComponent implements OnInit {
   }
 
   onQuantityIncrease(): void {
+    // тут мутация данных, которыми компонент не владеет, а получает от родителя
+    // делаем как в onDeleteItem
     this.item.quantity++;
   }
 
   onQuantityDecrease(): void {
+    // тут мутация данных, которыми компонент не владеет, а получает от родителя
+    // делаем как в onDeleteItem
     this.item.quantity--;
   }
 

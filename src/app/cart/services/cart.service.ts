@@ -15,6 +15,7 @@ export class CartService {
   }
 
   get totalQuantity(): number {
+    // на мой взгляд одинаковые товары стоит увеличивать в количестве
     return this.cart.length;
   }
 
