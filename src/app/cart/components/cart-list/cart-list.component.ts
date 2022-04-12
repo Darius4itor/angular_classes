@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Product } from 'src/app/products/models/product.model';
+import { CartItem } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -15,6 +16,10 @@ export class CartListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  trackByItems(index: number, product: Product): Product { return product; }
+  onItemDelete(event: CartItem): void {
+    this.cartService.deleteItem(event);
+  }
+
+  trackByItems(index: number, item: CartItem): CartItem { return item; }
 
 }

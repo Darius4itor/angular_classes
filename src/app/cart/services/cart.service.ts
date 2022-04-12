@@ -1,19 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/products/models/product.model';
+import { CartItem } from '../models/cart-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart: Product[] = [];
+  private cart: CartItem[] = [];
 
   constructor() { }
 
-  getCartItems(): Product[] {
+  get totalCost(): number {
+    return this.cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  }
+
+  get totalQuantity(): number {
+    // на мой взгляд одинаковые товары стоит увеличивать в количестве
+    return this.cart.length;
+  }
+
+  getCartItems(): CartItem[] {
     return this.cart;
   }
 
+  deleteItem(item: CartItem) {
+    let index = this.cart.indexOf(item);
+    if(index !== -1) {
+      this.cart.splice(index, 1);
+    }
+  }
+
   addItemToCart(product: Product): void {
-    this.cart.push(product);
+    let temp = this.cart.find(x => x.product === product);
+    if(temp) {
+      temp.quantity++;
+    } else {
+      this.cart.push(new CartItem(product, 1));
+    }
   }
 }
